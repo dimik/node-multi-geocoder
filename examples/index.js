@@ -2,7 +2,7 @@
 
 var fs = require('fs'),
     util = require('util'),
-    MultiGeocoder = require('..'),
+    MultiGeocoder = require('multi-geocoder'),
     geocoder = new MultiGeocoder({ provider: 'yandex' }),
     extend = function (target, source) {
         var slice = Array.prototype.slice,
