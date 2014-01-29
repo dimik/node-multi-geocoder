@@ -4,10 +4,11 @@
   "description": "NodeJS module for geocoding of address list",
   "main": "index.js",
   "directories": {
-    "example": "examples"
+    "example": "examples",
+    "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodeunit test"
   },
   "repository": {
     "type": "git",
