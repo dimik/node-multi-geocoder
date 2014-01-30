@@ -10,6 +10,11 @@
   "scripts": {
     "test": "nodeunit test"
   },
+  dependencies: {
+    "vow": "0.4.1",
+    "inherit": "2.1.0",
+    "handy-http": "1.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "ssh://github.com/dimik/node-multi-geocoder.git"
