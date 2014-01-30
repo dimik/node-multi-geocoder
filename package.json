@@ -10,7 +10,7 @@
   "scripts": {
     "test": "nodeunit test"
   },
-  dependencies: {
+  "dependencies": {
     "vow": "0.4.1",
     "inherit": "2.1.0",
     "handy-http": "1.0.0"
