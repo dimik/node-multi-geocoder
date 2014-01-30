@@ -1,6 +1,6 @@
 {
   "name": "multi-geocoder",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "NodeJS module for geocoding of address list",
   "main": "index.js",
   "directories": {
@@ -23,9 +23,7 @@
     "geocoding",
     "geocoder",
     "yandex",
-    "google",
-    "bing",
-    "osm"
+    "google"
   ],
   "author": "Dmitry Poklonskiy",
   "license": "GPL-2"
