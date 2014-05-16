@@ -1,6 +1,6 @@
 {
   "name": "multi-geocoder",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "NodeJS module for geocoding of address list",
   "main": "index.js",
   "directories": {
@@ -11,8 +11,8 @@
     "test": "nodeunit test"
   },
   "dependencies": {
-    "vow": "0.4.1",
-    "inherit": "2.1.0",
+    "vow": "0.4.3",
+    "inherit": "2.2.1",
     "handy-http": "1.0.0"
   },
   "repository": {
