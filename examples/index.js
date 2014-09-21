@@ -1,27 +1,12 @@
-#!/usr/bin/env node
-
 var fs = require('fs'),
     util = require('util'),
-    MultiGeocoder = require('multi-geocoder'),
-    geocoder = new MultiGeocoder({ provider: 'yandex' }),
-    extend = function (target, source) {
-        var slice = Array.prototype.slice,
-            hasOwnProperty = Object.prototype.hasOwnProperty;
-
-        slice.call(arguments, 1).forEach(function (o) {
-            for(var key in o) {
-                hasOwnProperty.call(o, key) && (target[key] = o[key]);
-            }
-        });
-
-        return target;
-    };
+    MultiGeocoder = require('..'),
+    geocoder = new MultiGeocoder({ provider: 'yandex' });
 
 // Перекравываем метод получения адреса у экземпляра провайдера.
 geocoder.getProvider().getText = function (point) {
     var text = 'Москва, ' + point.address;
 
-    console.log(text);
     return text;
 };
 
@@ -31,20 +16,15 @@ fs.readFile('./source.json', function (err, data) {
     data = JSON.parse(data.toString());
 
     geocoder.geocode(data)
-        .then(function (res) {
-            // Если нам нужно расширить полученными данными исходный JSON,
-            // делаем это подобным образом
-            /*
-            res.features.forEach(function (geoObject, index) {
-                if(geoObject) {
-                    var source = data[index];
+        .then(function (data) {
+            var result = data.result, errors = data.errors;
 
-                    extend(geoObject.properties, data[index]);
-                }
-            });
-            */
-            fs.writeFile('./geocoded.json', JSON.stringify(res));
-            console.log('geocoded: %s', res.features.length);
+            fs.writeFile('./geocoded.json', JSON.stringify(result));
+            console.log('geocoded: %s', result.features.length);
+            console.log('errors: %j', errors);
+        })
+        .progress(function (progress) {
+            console.log(progress.message);
         })
         .fail(function (err) {
             console.log('error', err);
