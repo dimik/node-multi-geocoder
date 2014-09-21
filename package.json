@@ -7,13 +7,12 @@
     "example": "examples",
     "test": "test"
   },
-  "scripts": {
-    "test": "nodeunit test"
-  },
   "dependencies": {
-    "vow": "0.4.3",
-    "inherit": "2.2.1",
-    "handy-http": "1.0.0"
+    "handy-http": "^1.0.0",
+    "inherit": "^2.2.2",
+    "jspath": "^0.2.12",
+    "vow": "^0.4.5",
+    "vow-queue": "^0.3.1"
   },
   "repository": {
     "type": "git",
@@ -26,5 +25,9 @@
     "google"
   ],
   "author": "Dmitry Poklonskiy",
-  "license": "GPL-2"
+  "license": "GPL-2",
+  "devDependencies": {
+    "mocha": "^1.21.4",
+    "should": "^4.0.4"
+  }
 }
