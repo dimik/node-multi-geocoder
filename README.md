@@ -11,7 +11,7 @@ You can install this module using Node Package Manager (npm):
 Usage
 -----
 The "geocode" method accepts address array and returns [Promises/A+](http://promisesaplus.com/) instance that will be fulfilled with object that has "result" field – [GeoJSON FeaturesCollection](http://geojson.org/geojson-spec.html#feature-collection-objects).
-And "errors" field that is array of requests could not be geocoded.
+And "errors" field contains the array of requests could not be geocoded.
 You can choose geocode provider or coordinates order with the appropriate option.
 The following providers are available: "yandex" (default), "google".
 
