@@ -1,6 +1,6 @@
 {
   "name": "multi-geocoder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "NodeJS module for geocoding of address list",
   "main": "index.js",
   "directories": {
