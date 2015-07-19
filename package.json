@@ -12,9 +12,9 @@
     "lodash": "^3.10.0",
     "lru-cache": "~2.6.5",
     "inherit": "^2.2.2",
-    "jspath": "^0.2.12",
-    "vow": "^0.4.5",
-    "vow-queue": "^0.3.1"
+    "jspath": "^0.3.1",
+    "vow": "^0.4.10",
+    "vow-queue": "^0.4.2"
   },
   "repository": {
     "type": "git",
