@@ -1,7 +1,7 @@
 var fs = require('fs'),
     util = require('util'),
     MultiGeocoder = require('..'),
-    geocoder = new MultiGeocoder({ provider: 'yandex' });
+    geocoder = new MultiGeocoder({ provider: 'yandex-cache' });
 
 // Перекравываем метод получения адреса у экземпляра провайдера.
 geocoder.getProvider().getText = function (point) {

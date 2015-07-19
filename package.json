@@ -10,6 +10,7 @@
   "dependencies": {
     "handy-http": "^1.0.0",
     "lodash": "^3.10.0",
+    "lru-cache": "~2.6.5",
     "inherit": "^2.2.2",
     "jspath": "^0.2.12",
     "vow": "^0.4.5",
