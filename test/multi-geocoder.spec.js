@@ -57,9 +57,9 @@ describe("MultiGeocoder", function () {
       var provider = geocoder.getProvider();
       var cacheHit = 0;
 
-      provider.onLoadFromCache = function (cacheKey, feature) {
+      provider.events.on('requestfound', function (cacheKey) {
         cacheHit++;
-      };
+      });
 
       geocoder.geocode(['Москва', 'Лондон', 'Париж'])
         .then(function (res) {
