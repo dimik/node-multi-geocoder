@@ -26,6 +26,7 @@ describe("MultiGeocoder", function () {
         .then(function (res) {
           res.result.features.should.be.an.Array.with.lengthOf(3);
           res.result.features[0].properties.name.should.be.eql('Москва');
+          parseInt(res.result.features[0].id).should.be.greaterThan(-1);
           res.errors.should.be.an.Array.with.lengthOf(0);
           done();
         })
@@ -39,6 +40,7 @@ describe("MultiGeocoder", function () {
         .then(function (res) {
           res.result.features.should.be.an.Array.with.lengthOf(3);
           res.result.features[0].properties.name.should.be.eql('Москва');
+          parseInt(res.result.features[0].id).should.be.greaterThan(-1);
           res.errors.should.be.an.Array.with.lengthOf(1);
           res.errors[0].should.have.properties({
             request: 'абвгджз',
