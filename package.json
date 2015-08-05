@@ -1,6 +1,6 @@
 {
   "name": "multi-geocoder",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "NodeJS module for geocoding of address list",
   "main": "index.js",
   "directories": {
@@ -8,7 +8,7 @@
     "test": "test"
   },
   "dependencies": {
-    "handy-http": "^1.0.0",
+    "handy-http": "^1.0.2",
     "lodash": "^3.10.0",
     "lru-cache": "~2.6.5",
     "inherit": "^2.2.2",
@@ -27,7 +27,7 @@
     "google"
   ],
   "author": "Dmitry Poklonskiy",
-  "license": "GPL-2",
+  "license": "MIT",
   "devDependencies": {
     "mocha": "^1.21.4",
     "should": "^4.0.4"
