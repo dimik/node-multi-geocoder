@@ -45,7 +45,7 @@ describe("MultiGeocoder", function () {
           res.errors[0].should.have.properties({
             request: 'абвгджз',
             index: 1,
-            reason: 'Error: not found'
+            reason: 'GeoObject Not Found'
           });
           done();
         })
@@ -80,7 +80,7 @@ describe("MultiGeocoder", function () {
           res.errors[0].should.have.properties({
             request: 'абвгджз',
             index: 1,
-            reason: 'Error: not found'
+            reason: 'GeoObject Not Found'
           });
 
           cacheHit.should.be.eql(3);
