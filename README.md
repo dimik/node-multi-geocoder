@@ -43,3 +43,23 @@ geocoder.geocode([{ address: 'Moscow' }, { address: 'New York' }, { address: 'Pa
         console.log(res);
     });
 ```
+
+To use [Yandex API Geocode Key](https://tech.yandex.ru/maps/keys/)
+you should overlap the "getRequestParams" method of geocode provider as follows:
+
+```js
+var MultiGeocoder = require('multi-geocoder'),
+    geocoder = new MultiGeocoder({ provider: 'yandex', coordorder: 'latlong' }),
+    provider = geocoder.getProvider();
+
+var getRequestParams = provider.getRequestParams;
+provider.getRequestParams = function () {
+  var result = getRequestParams.apply(provider, arguments);
+  result.key = '_my_api_key_';
+  return result;
+};
+geocoder.geocode(['Moscow', 'New York', 'Paris', 'London'])
+    .then(function (res) {
+        console.log(res);
+    });
+```

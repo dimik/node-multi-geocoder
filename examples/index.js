@@ -1,14 +1,26 @@
 var fs = require('fs'),
-    util = require('util'),
     MultiGeocoder = require('..'),
-    geocoder = new MultiGeocoder({ provider: 'yandex-cache' });
+    geocoder = new MultiGeocoder({ provider: 'yandex-cache' }),
+    provider = geocoder.getProvider();
 
 // Перекравываем метод получения адреса у экземпляра провайдера.
-geocoder.getProvider().getText = function (point) {
+provider.getText = function (point) {
     var text = 'Москва, ' + point.address;
 
     return text;
 };
+
+/**
+ * Использование ключа для АПИ Яндекса
+ * @see https://tech.yandex.ru/maps/keys/
+ *
+var getRequestParams = provider.getRequestParams;
+provider.getRequestParams = function () {
+  var result = getRequestParams.apply(provider, arguments);
+  result.key = '_my_api_key_';
+  return result;
+};
+ */
 
 fs.readFile('./source.json', function (err, data) {
     if(err) throw err;

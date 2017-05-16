@@ -52,6 +52,28 @@ describe("MultiGeocoder", function () {
         .fail(done);
     });
 
+    it('should use yandex apikey param', function (done) {
+      var geocoder = new MultiGeocoder({ provider: 'yandex-cache' });
+      var provider = geocoder.getProvider();
+      var getRequestParams = provider.getRequestParams;
+      provider.getRequestParams = function () {
+        var result = getRequestParams.apply(provider, arguments);
+        result.key = 'ALkm20kBAAAAK5CqfgMA_c1OWiL-mTzfZaqsZFYHh3AtLvMAAAAAAAAAAABUmTLmOgi_IJbIqdxmW92iEU4c8w==';
+        return result;
+      };
+      geocoder.geocode(['Амстердам', 'Лондон', 'Париж'])
+        .then(function (res) {
+          res.result.features.should.be.an.Array.with.lengthOf(3);
+          res.result.features[0].properties.description.should.match(/Голландия/);
+          res.result.features[1].properties.description.should.match(/Англия/);
+          res.result.features[2].properties.description.should.match(/Франция/);
+          parseInt(res.result.features[0].id).should.be.greaterThan(-1);
+          res.errors.should.be.an.Array.with.lengthOf(0);
+          done();
+        })
+        .fail(done);
+    });
+
     it('should return features from cache', function (done) {
       var geocoder = new MultiGeocoder({ provider: 'yandex-cache' });
       var provider = geocoder.getProvider();
